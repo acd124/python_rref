@@ -29,8 +29,8 @@ def rowOfColumn(matrix, column):
         return rows[0]
 
 
-def gauss_jordan(matrix):
-    for column in range(len(matrix[0]) - 1):
+def gauss_jordan(matrix, augment=True):
+    for column in range(len(matrix[0]) - (1 if augment else 0)):
         firstTermIndex = firstTerm(matrix[column])
         if firstTermIndex is None:
             continue
@@ -50,13 +50,13 @@ def gauss_jordan(matrix):
     return matrix
 
 
-def solve(mat):
+def solve(mat, augment=True):
     print(
         "\n".join(
             "["
             + ", ".join(str(item) if item < 0 else " " + str(abs(item)) for item in a)
             + "]"
-            for a in gauss_jordan(mat)
+            for a in gauss_jordan(mat, augment)
         )
     )
 
@@ -151,10 +151,12 @@ def solve(mat):
     ]
 )
 
-solve(
+# 3x3 many solution
+(
     [
-        [1, 4, 3, 0],
-        [-2, 0, -1, 0],
-        [0, 8, 5, 0],
-    ]
+        [1, 4, 3],
+        [-2, 0, -1],
+        [0, 8, 5],
+    ],
+    False,
 )
