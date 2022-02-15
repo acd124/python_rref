@@ -29,8 +29,8 @@ def rowOfColumn(matrix, column):
         return rows[0]
 
 
-def gauss_jordan(matrix, augment=True):
-    for column in range(len(matrix[0]) - (1 if augment else 0)):
+def gauss_jordan(matrix, augment=1):
+    for column in range(len(matrix[0]) - augment):
         firstTermIndex = firstTerm(matrix[column])
         if firstTermIndex is None:
             continue
@@ -50,7 +50,7 @@ def gauss_jordan(matrix, augment=True):
     return matrix
 
 
-def solve(mat, augment=True):
+def solve(mat, augment=1):
     print(
         "\n".join(
             "["
@@ -158,5 +158,5 @@ def solve(mat, augment=True):
         [-2, 0, -1],
         [0, 8, 5],
     ],
-    False,
+    0,
 )
