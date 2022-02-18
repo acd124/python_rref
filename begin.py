@@ -29,7 +29,7 @@ def rowOfColumn(matrix, column):
         return rows[0]
 
 
-def gauss_jordan(matrix, augment=1):
+def gauss_jordan(matrix, augment=0):
     for column in range(len(matrix[0]) - augment):
         firstTermIndex = firstTerm(matrix[column])
         if firstTermIndex is None:
@@ -50,7 +50,7 @@ def gauss_jordan(matrix, augment=1):
     return matrix
 
 
-def solve(mat, augment=1):
+def solve(mat, augment=0):
     print(
         "\n".join(
             "["
@@ -69,7 +69,8 @@ def solve(mat, augment=1):
         [1, 1, 0, 0],
         [2, -1, 1, 3],
         [1, -2, 2, 3],
-    ]
+    ],
+    1,
 )
 
 # 3x3 has no solutions
@@ -86,7 +87,8 @@ def solve(mat, augment=1):
     [
         [2, 1, 1],
         [-1, 1, 0],
-    ]
+    ],
+    1,
 )
 
 # 2x2 has 1 solution
@@ -94,7 +96,8 @@ def solve(mat, augment=1):
     [
         [4, -1, 6],
         [2, 1, 0],
-    ]
+    ],
+    1,
 )
 
 # 4x4 has 1 solution (messy results)
@@ -104,7 +107,8 @@ def solve(mat, augment=1):
         [3, 2, 6, -3, 2],
         [2, -4, -2, -1, 3],
         [3, 5, 7, -1, 3],
-    ]
+    ],
+    1,
 )
 
 # 3x3 has 1 solution
@@ -113,7 +117,8 @@ def solve(mat, augment=1):
         [1, 1, 1, 9],
         [0, 1, -1, 2],
         [1, 1, 3, 0],
-    ]
+    ],
+    1,
 )
 
 # 2x2 parallel lines, no solutions
@@ -121,7 +126,8 @@ def solve(mat, augment=1):
     [
         [2, -1, 3],
         [2, -1, 0],
-    ]
+    ],
+    1,
 )
 
 # 2x2 same line, many solutions
@@ -129,7 +135,8 @@ def solve(mat, augment=1):
     [
         [4, 1, 3],
         [8, 2, 6],
-    ]
+    ],
+    1,
 )
 
 # 2x3 not solvable with info, many solutions
@@ -137,7 +144,8 @@ def solve(mat, augment=1):
     [
         [2, 3, 4, 5],
         [1, 2, 4, 4],
-    ]
+    ],
+    1,
 )
 
 # 5x2 no solutions
@@ -148,7 +156,8 @@ def solve(mat, augment=1):
         [7, 3, 1],
         [3, 4, 5],
         [3, 4, 2],
-    ]
+    ],
+    1,
 )
 
 # 3x3 many solution
